@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* SolMint-inspired dark theme design system */
+
+@layer base {
+  :root {
+    /* Dark theme base colors */
+    --background: 224 15% 8%;
+    --foreground: 210 40% 98%;
+
+    --card: 224 20% 12%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 224 20% 12%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Purple-pink brand colors inspired by the original */
+    --primary: 280 100% 70%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 224 25% 15%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 224 20% 12%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 280 100% 70%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 224 25% 20%;
+    --input: 224 25% 15%;
+    --ring: 280 100% 70%;
+
+    --radius: 0.75rem;
+
+    /* Brand gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(280, 100%, 70%), hsl(320, 100%, 70%));
+    --gradient-secondary: linear-gradient(135deg, hsl(224, 25%, 15%), hsl(224, 20%, 12%));
+    --gradient-background: linear-gradient(135deg, hsl(224, 15%, 8%), hsl(224, 20%, 6%));
+    
+    /* Geometric pattern overlay */
+    --pattern-opacity: 0.03;
+    
+    /* Glowing effects */
+    --glow-primary: 0 0 40px hsl(280, 100%, 70%, 0.3);
+    --glow-secondary: 0 0 20px hsl(280, 100%, 70%, 0.2);
+    
+    /* Premium button styles */
+    --btn-premium: linear-gradient(135deg, hsl(280, 100%, 70%), hsl(320, 100%, 70%));
+    --btn-secondary: linear-gradient(135deg, hsl(224, 25%, 15%), hsl(224, 30%, 18%));
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    background: var(--gradient-background);
+    background-size: 400% 400%; /* necesario para la animación */
+    animation: gradientShift 12s ease infinite;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  @keyframes gradientShift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /* Glow animado en el fondo */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 20% 20%, hsl(280, 100%, 70%, 0.15), transparent 40%),
+                radial-gradient(circle at 80% 80%, #14F195, transparent 30%);
+    animation: moveGlow 20s linear infinite alternate;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  @keyframes moveGlow {
+    0%   { transform: translate(0,0) scale(1); }
+    100% { transform: translate(-20%, -20%) scale(1.2); }
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary));
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--accent));
+  }
+}

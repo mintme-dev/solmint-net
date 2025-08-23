@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SolMint - Create Your Solana Token | Easy SPL Token Creator</title>
+    <meta name="description" content="Launch your own cryptocurrency in seconds. No coding required. Professional token creation made simple on Solana blockchain." />
+    <meta name="author" content="Solmint" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="alternate icon" href="/favicon.png">
+
+    <meta property="og:title" content="SolMint - Create Solana Tokens Instantly" />
+    <meta property="og:description" content="Launch your own cryptocurrency in seconds. No coding required. Professional token creation made simple on Solana blockchain." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/home-screen.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@mintme_dev" />
+    <meta name="twitter:image" content="/home-screen.png" />
+    <script>
+      // Polyfill para process
+      if (typeof process === "undefined") {
+        window.process = {
+          env: {},
+          version: "",
+          platform: "browser",
+          nextTick: (fn) => setTimeout(fn, 0),
+          browser: true,
+        };
+      }
+
+      // Polyfill para global
+      if (typeof global === "undefined") {
+        window.global = window;
+      }
+
+      // Polyfill básico para Buffer
+      if (typeof Buffer === "undefined") {
+        window.Buffer = {
+          from: (data) => new Uint8Array(data),
+          alloc: (size) => new Uint8Array(size),
+          isBuffer: () => false,
+        };
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
