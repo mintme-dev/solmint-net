@@ -2,7 +2,7 @@
 we are opening this project to improve the and democryze the price about mint tokens and standars on solana.
 
 open source from solmint.net is a simple web platform built with **mintme-sdk** and **mintme-widget** to allow users to interact with Solana tokens easily.
-- website open source: https://ooensource.mintme.net
+- website open source: https://opensource.mintme.net
 - comercial website: https://solmint.net 
 
 <img width="2962" height="1798" alt="solmint-screenshot (1)" src="https://github.com/user-attachments/assets/4e1c9157-a6e6-4d8f-ba51-4d407bb08dce" />
